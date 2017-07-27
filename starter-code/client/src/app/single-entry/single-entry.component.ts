@@ -9,12 +9,13 @@ import "rxjs/add/operator/mergeMap";
   templateUrl: './single-entry.component.html',
   styleUrls: ['./single-entry.component.css']
 })
+
 export class SingleEntryComponent implements OnInit {
-  entry: Object;
+  entry: any;
 
   constructor(private route: ActivatedRoute, private enS:EntryService) {
   route.params
-  .mergeMap( e => enS.get(e.id))
+  .mergeMap( (e:any) => enS.get(e.id))
   .subscribe( entry => {
     console.log(entry);
     this.entry=entry;
