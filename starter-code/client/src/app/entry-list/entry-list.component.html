@@ -1,0 +1,8 @@
+<h3> Entry list </h3>
+<div>
+  <div *ngFor="let entry of entries | async" class="blocky">
+    <h3> {{ entry.title }} </h3>
+    <p> {{ entry.date }} </p>
+    <a [routerLink]="['entry', entry._id]"> View Details </a>
+  </div>
+</div>

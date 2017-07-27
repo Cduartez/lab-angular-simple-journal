@@ -29,10 +29,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
-const index = require('./routes/index');
-app.use('/', index);
+// const index = require('./routes/index');
+const entries = require('./routes/api/journal-entries');
+// app.use('/', index);
 
-app.all('/*', function (req, res) {
+
+//app.all('/*', function (req, res) {
+app.use('/', entries);
+app.use(function(req,res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 // catch 404 and forward to error handler

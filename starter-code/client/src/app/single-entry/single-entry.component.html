@@ -1,0 +1,17 @@
+<h1> Entry details </h1>
+    <a [routerLink]="['']"> Back to list </a>
+
+<div *ngIf="entry">
+  <div class="entry-info">
+    <h2> {{ entry.title }}&nbsp;</h2>
+    <p> {{ entry.content }} </p>
+
+    <div *ngIf="entry.specs.length">
+      <h4> Content</h4>
+      <ul>
+        <li *ngFor="let spec of entry.specs"> {{spec&nbsp;}} </li>
+      </ul>
+
+  </div>
+</div>
+</div>
